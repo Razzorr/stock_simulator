@@ -8,16 +8,16 @@ class Stock {
   static List<Stock> getAll() {
     List<Stock> stocks = List<Stock>.empty(growable: true);
 
-    stocks.add(Stock(company: "McDonalds", symbol: "MCD", price: 3.50));
-    stocks.add(Stock(company: "BangBroz", symbol: "BBZ", price: 3.50));
-    stocks.add(Stock(company: "PornHub", symbol: "PH", price: 3.50));
-    stocks.add(Stock(company: "Segway", symbol: "SG", price: 3.50));
-    stocks.add(Stock(company: "Ballsakc", symbol: "BSK", price: 3.50));
-    stocks.add(Stock(company: "PEnis", symbol: "PN", price: 3.50));
-    stocks.add(Stock(company: "Vagenis", symbol: "VG", price: 3.50));
-    stocks.add(Stock(company: "PussyCatFLowe", symbol: "PCF", price: 3.50));
-    stocks.add(Stock(company: "NigerianBalls", symbol: "NB", price: 3.50));
-    stocks.add(Stock(company: "Daddy", symbol: "DDY", price: 3.50));
+    stocks.add(Stock(company: "Company1", symbol: "CP1", price: 3.50));
+    stocks.add(Stock(company: "Company2", symbol: "CP2", price: 3.50));
+    stocks.add(Stock(company: "Company3", symbol: "CP3", price: 3.50));
+    stocks.add(Stock(company: "Company4", symbol: "CP4", price: 3.50));
+    stocks.add(Stock(company: "Company5", symbol: "CP5", price: 3.50));
+    stocks.add(Stock(company: "Company6", symbol: "CP6", price: 3.50));
+    stocks.add(Stock(company: "Company7", symbol: "CP7", price: 3.50));
+    stocks.add(Stock(company: "Company8", symbol: "CP8", price: 3.50));
+    stocks.add(Stock(company: "Company9", symbol: "CP9", price: 3.50));
+    stocks.add(Stock(company: "Company10", symbol: "CP10", price: 3.50));
 
     return stocks;
   }
