@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stock_simulator/models/stock.dart';
+import 'package:stock_simulator/models/stock_list.dart';
 import 'package:stock_simulator/widgets/stocklist.dart';
 import '_homepage.dart';
 import 'activitypage.dart';
@@ -15,8 +16,12 @@ class TradePage extends StatefulWidget {
 // ignore: camel_case_types
 class _tradepage extends State<TradePage> {
   String date = new DateFormat.yMMMMd('en_US').format(new DateTime.now());
+  List<Stock> stocks1 = StockList2.stocks;
   @override
   Widget build(BuildContext context) {
+    for (int i = 0; i < StockList2.stocks.length; i++) {
+      StockList2.stocks[i].setPressed(false);
+    }
     return Scaffold(
         body: Stack(children: <Widget>[
       Container(
@@ -56,7 +61,7 @@ class _tradepage extends State<TradePage> {
                   ),
                   SizedBox(
                       height: MediaQuery.of(context).size.height - 300,
-                      child: StockList(stocks: Stock.getAll())),
+                      child: StockList(stocks: StockList2(StockList2.stocks))),
                   //buttons
                   Container(
                       padding: EdgeInsets.all(10.0),

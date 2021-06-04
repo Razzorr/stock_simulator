@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:stock_simulator/models/stock.dart';
 import 'package:stock_simulator/pages/buyandsellpage.dart';
-import 'package:stock_simulator/pages/tradepage.dart';
+import 'package:stock_simulator/models/stock_list.dart';
 
 class StockList extends StatelessWidget {
-  final List<Stock>? stocks;
+  final StockList2? stocks;
 
   StockList({this.stocks});
 
@@ -13,9 +13,9 @@ class StockList extends StatelessWidget {
         separatorBuilder: (context, index) {
           return Divider(color: Colors.grey[400]);
         },
-        itemCount: stocks!.length,
+        itemCount: stocks!.length(),
         itemBuilder: (context, index) {
-          final stock = stocks![index];
+          final stock = stocks!.getIndex(index);
           var symbol = stock.symbol;
           var company = stock.company;
           var price = stock.price;
@@ -29,10 +29,12 @@ class StockList extends StatelessWidget {
                       padding: EdgeInsets.all(10.0),
                       child: TextButton(
                         onPressed: () {
+                          stock.setPressed(true);
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => BuySellPage()));
+                                  builder: (context) =>
+                                      BuySellPage(this.stocks)));
                         },
                         child: Text('$symbol',
                             style: TextStyle(
