@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stock_simulator/models/stock.dart';
+import 'package:stock_simulator/pages/buyandsellpage.dart';
+import 'package:stock_simulator/pages/tradepage.dart';
 
 class StockList extends StatelessWidget {
   final List<Stock>? stocks;
@@ -19,15 +21,25 @@ class StockList extends StatelessWidget {
           var price = stock.price;
           var randPrice = -1.09;
           return ListTile(
-              contentPadding: EdgeInsets.all(10),
+              contentPadding: EdgeInsets.symmetric(vertical: 3.0),
               title: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('$symbol',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.w500)),
+                  Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => BuySellPage()));
+                        },
+                        child: Text('$symbol',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                                fontWeight: FontWeight.w500)),
+                      )),
                   Text('$company',
                       style: TextStyle(
                           color: Colors.grey[500],
