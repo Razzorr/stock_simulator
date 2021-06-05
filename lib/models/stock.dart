@@ -1,5 +1,3 @@
-import 'package:stock_simulator/pages/buyandsellpage.dart';
-
 class Stock {
   final String? symbol;
   final String? company;
