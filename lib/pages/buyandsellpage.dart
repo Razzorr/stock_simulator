@@ -41,7 +41,7 @@ class _buysellpage extends State<BuySellPage> {
                         children: <Widget>[
                           SafeArea(
                             child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Padding(
                                     padding: EdgeInsets.all(0.0),
@@ -66,7 +66,8 @@ class _buysellpage extends State<BuySellPage> {
                                     )),
                                 Container(
                                     padding: EdgeInsets.all(30.0),
-                                    width: MediaQuery.of(context).size.width,
+                                    width:
+                                        MediaQuery.of(context).size.width - 100,
                                     color: Colors.black,
                                     child: (SafeArea(
                                         child: Text(
