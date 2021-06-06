@@ -19,7 +19,7 @@ class StockList extends StatelessWidget {
           var symbol = stock.symbol;
           var company = stock.company;
           var price = stock.price;
-          var randPrice = -1.09;
+          var rate = stock.rate;
           return ListTile(
               contentPadding: EdgeInsets.symmetric(vertical: 3.0),
               title: Column(
@@ -60,12 +60,12 @@ class StockList extends StatelessWidget {
                     child: Container(
                         width: 75,
                         height: 25,
-                        child: Text("$randPrice%",
+                        child: Text("$rate%",
                             style: TextStyle(color: Colors.white)),
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
-                          color: checkColor(randPrice),
+                          color: checkColor(rate),
                         )),
                   )
                 ],

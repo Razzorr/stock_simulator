@@ -7,6 +7,7 @@ import 'activitypage.dart';
 import 'learnpage.dart';
 import 'newspage.dart';
 import 'package:intl/intl.dart';
+
 //import 'dart.html';
 
 class TradePage extends StatefulWidget {
