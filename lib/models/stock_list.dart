@@ -1,5 +1,4 @@
 import 'stock.dart';
-import 'package:yahoofin/yahoofin.dart';
 
 class StockList2 {
   static List<Stock> stocks = [
