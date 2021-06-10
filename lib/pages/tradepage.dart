@@ -16,13 +16,21 @@ class TradePage extends StatefulWidget {
 
 // ignore: camel_case_types
 class _tradepage extends State<TradePage> {
+  dynamic access(dynamic stocks) async {
+    stocks = await s.building(a);
+  }
+
+  List<String> a = ['a'];
   String date = new DateFormat.yMMMMd('en_US').format(new DateTime.now());
-  List<Stock> stocks1 = StockList2.stocks;
+  StockList2 s = new StockList2([Stock(price: 0.00)]);
+  List<Stock> stocks1 = [Stock(price: 3.33)];
+
   @override
   Widget build(BuildContext context) {
     for (int i = 0; i < StockList2.stocks.length; i++) {
       StockList2.stocks[i].setPressed(false);
     }
+    this.access(stocks1);
     return Scaffold(
         body: Stack(children: <Widget>[
       Container(

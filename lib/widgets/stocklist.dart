@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:stock_simulator/models/stock.dart';
 import 'package:stock_simulator/pages/buyandsellpage.dart';
 import 'package:stock_simulator/models/stock_list.dart';
 

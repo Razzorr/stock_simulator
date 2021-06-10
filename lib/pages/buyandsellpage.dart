@@ -73,8 +73,7 @@ class _buysellpage extends State<BuySellPage> {
                                         child: Text(
                                             "${stocks!.trueStock()!.companyName}",
                                             style: TextStyle(
-                                                color: checkColor(
-                                                    stock!.stockPrice),
+                                                color: checkColor(stock!.rate),
                                                 fontSize: 36,
                                                 fontWeight: FontWeight.bold)))))
                               ],
@@ -91,7 +90,7 @@ class _buysellpage extends State<BuySellPage> {
                                         fontWeight: FontWeight.bold)),
                                 Text("\$${stocks!.trueStock()!.price}",
                                     style: TextStyle(
-                                        color: checkColor(stock.stockPrice),
+                                        color: checkColor(stock.rate),
                                         fontSize: 36,
                                         fontWeight: FontWeight.bold)),
                                 SizedBox(
