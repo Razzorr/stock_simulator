@@ -1,5 +1,4 @@
 import 'stock.dart';
-import 'finquote.dart';
 
 class StockList2 {
   static Map<String, Map<String, dynamic>> rand = {
@@ -18,70 +17,70 @@ class StockList2 {
       Stock(
         company: "Company1",
         symbol: "CP1",
-        price: await FinQuote(rand).main(rand2),
+        price: 1.23,
         isPressed: false,
         rate: -1.09,
       ),
       Stock(
         company: "Company2",
         symbol: "CP2",
-        price: await FinQuote(rand).main(rand2),
+        price: 1.23,
         isPressed: false,
         rate: 3.06,
       ),
       Stock(
         company: "Company3",
         symbol: "CP3",
-        price: await FinQuote(rand).main(rand2),
+        price: 1.23,
         isPressed: false,
         rate: -7.86,
       ),
       Stock(
         company: "Company4",
         symbol: "CP4",
-        price: await FinQuote(rand).main(rand2),
+        price: 1.23,
         isPressed: false,
         rate: 8.28,
       ),
       Stock(
         company: "Company5",
         symbol: "CP5",
-        price: await FinQuote(rand).main(rand2),
+        price: 1.23,
         isPressed: false,
         rate: 9.10,
       ),
       Stock(
         company: "Company6",
         symbol: "CP6",
-        price: await FinQuote(rand).main(rand2),
+        price: 1.23,
         isPressed: false,
         rate: -1.23,
       ),
       Stock(
         company: "Company7",
         symbol: "CP7",
-        price: await FinQuote(rand).main(rand2),
+        price: 1.23,
         isPressed: false,
         rate: 2.34,
       ),
       Stock(
         company: "Company8",
         symbol: "CP8",
-        price: await FinQuote(rand).main(rand2),
+        price: 1.23,
         isPressed: false,
         rate: 7.67,
       ),
       Stock(
         company: "Company9",
         symbol: "CP9",
-        price: await FinQuote(rand).main(rand2),
+        price: 1.23,
         isPressed: false,
         rate: -3.45,
       ),
       Stock(
         company: "Company10",
         symbol: "CP10",
-        price: await FinQuote(rand).main(rand2),
+        price: 1.23,
         isPressed: false,
         rate: -6.54,
       )
