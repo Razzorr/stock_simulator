@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stock_simulator/pages/buyandsellpage.dart';
-import 'package:stock_simulator/models/stock_list.dart';
+import 'package:stock_simulator/models/stock_models/stock_list.dart';
 
 class StockList extends StatelessWidget {
   final StockList2? stocks;

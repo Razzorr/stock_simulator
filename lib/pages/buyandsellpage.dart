@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:stock_simulator/models/stock.dart';
+import 'package:stock_simulator/models/stock_models/stock.dart';
 import 'package:stock_simulator/pages/tradepage.dart';
-import 'package:stock_simulator/models/stock_list.dart';
+import 'package:stock_simulator/models/stock_models/stock_list.dart';
 import 'tradepage.dart';
 
 class BuySellPage extends StatefulWidget {
