@@ -3,6 +3,7 @@ import 'package:stock_simulator/models/stock_models/stock.dart';
 import 'package:stock_simulator/pages/tradepage.dart';
 import 'package:stock_simulator/models/stock_models/stock_list.dart';
 import 'tradepage.dart';
+//import 'stockchart.dart';
 
 class BuySellPage extends StatefulWidget {
   final StockList2? stocks;
@@ -108,7 +109,8 @@ class _buysellpage extends State<BuySellPage> {
                                         color: checkColor(stock.rate),
                                       )),
                                 )
-                              ]))
+                              ])),
+                          //SizedBox(child: StockChart())
                         ])),
               ])))
     ]));

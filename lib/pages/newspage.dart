@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:stock_simulator/models/news_models/view_models/newsarticle_listview.dart';
+import 'package:stock_simulator/widgets/newslist.dart';
 import '_homepage.dart';
 import 'activitypage.dart';
 import 'tradepage.dart';
@@ -27,6 +30,15 @@ class _newspage extends State<NewsPage> {
                           color: Colors.white,
                           fontSize: 36,
                           fontWeight: FontWeight.bold)),
+                  SafeArea(
+                    child: Flexible(
+                      child: SizedBox(
+                        child: ChangeNotifierProvider(
+                            create: (context) => NewsArticleListViewModel(),
+                            child: NewsList()),
+                      ),
+                    ),
+                  ),
                   Container(
                       padding: EdgeInsets.all(10.0),
                       width: MediaQuery.of(context).size.width,
