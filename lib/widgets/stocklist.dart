@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:stock_simulator/models/stock_models/viewmodels/stock_listview.dart';
 import 'package:stock_simulator/pages/buyandsellpage.dart';
 import 'package:stock_simulator/models/stock_models/stock_list.dart';
 
+import 'package:stock_simulator/models/viewmodels/stock_listview.dart';
+
 class StockList extends StatelessWidget {
-  final StockList2? stocks;
-
-  StockList({this.stocks});
-
   Widget build(BuildContext context) {
+    final vm = Provider.of<StockListViewModel>(context);
     return ListView.separated(
         separatorBuilder: (context, index) {
           return Divider(color: Colors.grey[400]);
         },
+        scrollDirection: Axis.vertical,
+        shrinkWrap: true,
         itemCount: stocks!.length(),
         itemBuilder: (context, index) {
-          final stock = stocks!.getIndex(index);
-          var symbol = stock.symbol;
-          var company = stock.company;
+          final stock = vm.stocks[index];
+          var ticker = stock.ticker;
+          var companyName = stock.companyName;
           var price = stock.price;
-          var rate = stock.rate;
+          var changes = stock.changes;
           return ListTile(
               contentPadding: EdgeInsets.symmetric(vertical: 3.0),
               title: Column(
@@ -35,13 +38,13 @@ class StockList extends StatelessWidget {
                                   builder: (context) =>
                                       BuySellPage(this.stocks)));
                         },
-                        child: Text('$symbol',
+                        child: Text('$ticker',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 24,
                                 fontWeight: FontWeight.w500)),
                       )),
-                  Text('$company',
+                  Text('$companyName',
                       style: TextStyle(
                           color: Colors.grey[500],
                           fontSize: 16,
@@ -59,12 +62,12 @@ class StockList extends StatelessWidget {
                     child: Container(
                         width: 75,
                         height: 25,
-                        child: Text("$rate%",
+                        child: Text("$changes%",
                             style: TextStyle(color: Colors.white)),
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
-                          color: checkColor(rate),
+                          color: checkColor(changes),
                         )),
                   )
                 ],

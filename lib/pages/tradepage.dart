@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:stock_simulator/models/stock_models/stock.dart';
 import 'package:stock_simulator/models/stock_models/stock_list.dart';
+import 'package:stock_simulator/models/stock_models/viewmodels/stock_listview.dart';
 import 'package:stock_simulator/widgets/stocklist.dart';
 import '_homepage.dart';
 import 'activitypage.dart';
@@ -16,21 +18,15 @@ class TradePage extends StatefulWidget {
 
 // ignore: camel_case_types
 class _tradepage extends State<TradePage> {
-  dynamic access(dynamic stocks) async {
-    stocks = await s.building(a);
-  }
-
   List<String> a = ['a'];
   String date = new DateFormat.yMMMMd('en_US').format(new DateTime.now());
-  StockList2 s = new StockList2([Stock(price: 0.00)]);
-  List<Stock> stocks1 = [Stock(price: 3.33)];
 
   @override
   Widget build(BuildContext context) {
-    for (int i = 0; i < StockList2.stocks.length; i++) {
-      StockList2.stocks[i].setPressed(false);
+    for (int i = 0; i < vm.stocks.length; i++) {
+      final vm = Provider.of<StockListViewModel>(context);
+      vm.stocks[i].setPressed(false);
     }
-    this.access(stocks1);
     return Scaffold(
         body: Stack(children: <Widget>[
       Container(
@@ -68,9 +64,17 @@ class _tradepage extends State<TradePage> {
                                     borderRadius: BorderRadius.all(
                                         Radius.circular(32)))))),
                   ),
-                  SizedBox(
-                      height: MediaQuery.of(context).size.height - 300,
-                      child: StockList(stocks: StockList2(StockList2.stocks))),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SafeArea(
+                      child: SizedBox(
+                        height: MediaQuery.of(context).size.height - 300,
+                        child: ChangeNotifierProvider(
+                            create: (context) => StockListViewModel(),
+                            child: StockList()),
+                      ),
+                    ),
+                  ),
                   //buttons
                   Container(
                       padding: EdgeInsets.all(10.0),

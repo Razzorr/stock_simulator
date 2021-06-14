@@ -13,8 +13,16 @@ class BuySellPage extends StatefulWidget {
 
 // ignore: camel_case_types
 class _buysellpage extends State<BuySellPage> {
-  final StockList2? stocks;
-  _buysellpage(this.stocks);
+  final vm = Provider.of<StockListViewModel>(context);
+
+  dynamic trueStock() {
+    for (int i = 0; i < vm.stocks.length; i++) {
+      if (vm.stocks[i].isPressed()) {
+        return vm.stocks[i];
+      }
+    }
+  }
+
   Color checkColor(double? val) {
     if (val! > 0) return Colors.green;
     return Colors.red;
