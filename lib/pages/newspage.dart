@@ -30,9 +30,11 @@ class _newspage extends State<NewsPage> {
                           color: Colors.white,
                           fontSize: 36,
                           fontWeight: FontWeight.bold)),
-                  SafeArea(
-                    child: Flexible(
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SafeArea(
                       child: SizedBox(
+                        height: MediaQuery.of(context).size.height - 200,
                         child: ChangeNotifierProvider(
                             create: (context) => NewsArticleListViewModel(),
                             child: NewsList()),

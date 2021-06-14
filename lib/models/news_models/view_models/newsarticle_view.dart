@@ -20,4 +20,8 @@ class NewsArticleViewModel {
   String get url {
     return newsArticle!.url;
   }
+
+  String? get author {
+    return newsArticle!.author;
+  }
 }
