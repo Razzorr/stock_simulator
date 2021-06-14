@@ -1,28 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:stock_simulator/models/stock_models/stock.dart';
+import 'package:stock_simulator/models/stock_models/viewmodels/stock_listview.dart';
 import 'package:stock_simulator/pages/tradepage.dart';
 import 'package:stock_simulator/models/stock_models/stock_list.dart';
 import 'tradepage.dart';
 //import 'stockchart.dart';
 
 class BuySellPage extends StatefulWidget {
-  final StockList2? stocks;
-  BuySellPage(this.stocks);
-  _buysellpage createState() => _buysellpage(this.stocks);
+  _buysellpage createState() => _buysellpage();
 }
 
 // ignore: camel_case_types
 class _buysellpage extends State<BuySellPage> {
-  final vm = Provider.of<StockListViewModel>(context);
-
-  dynamic trueStock() {
-    for (int i = 0; i < vm.stocks.length; i++) {
-      if (vm.stocks[i].isPressed()) {
-        return vm.stocks[i];
-      }
-    }
-  }
-
   Color checkColor(double? val) {
     if (val! > 0) return Colors.green;
     return Colors.red;
@@ -30,7 +20,17 @@ class _buysellpage extends State<BuySellPage> {
 
   @override
   Widget build(BuildContext context) {
-    Stock? stock = stocks!.trueStock();
+    final vm = Provider.of<StockListViewModel>(context);
+
+    dynamic trueStock() {
+      for (int i = 0; i < vm.stocks.length; i++) {
+        if (vm.stocks[i].isPressed == true) {
+          return vm.stocks[i];
+        }
+      }
+    }
+
+    Stock? stock = trueStock();
     return Scaffold(
         body: Stack(children: <Widget>[
       Container(
@@ -79,11 +79,10 @@ class _buysellpage extends State<BuySellPage> {
                                         MediaQuery.of(context).size.width - 100,
                                     color: Colors.black,
                                     child: (SafeArea(
-                                        child: Text(
-                                            "${stocks!.trueStock()!.companyName}",
+                                        child: Text("${stock!.companyName}",
                                             style: TextStyle(
                                                 color:
-                                                    checkColor(stock!.changes),
+                                                    checkColor(stock.changes),
                                                 fontSize: 36,
                                                 fontWeight: FontWeight.bold)))))
                               ],
@@ -93,12 +92,12 @@ class _buysellpage extends State<BuySellPage> {
                               child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
-                                Text("${stocks!.trueStock()!.ticker}",
+                                Text("${stock.ticker}",
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 36,
                                         fontWeight: FontWeight.bold)),
-                                Text("\$${stocks!.trueStock()!.price}",
+                                Text("\$${stock.price}",
                                     style: TextStyle(
                                         color: checkColor(stock.changes),
                                         fontSize: 36,
@@ -107,8 +106,7 @@ class _buysellpage extends State<BuySellPage> {
                                   child: Container(
                                       width: 150,
                                       height: 50,
-                                      child: Text(
-                                          "${stocks!.trueStock()!.changes}%",
+                                      child: Text("${stock.changes}%",
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 24)),

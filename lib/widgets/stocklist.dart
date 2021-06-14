@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stock_simulator/models/stock_models/viewmodels/stock_listview.dart';
 import 'package:stock_simulator/pages/buyandsellpage.dart';
-import 'package:stock_simulator/models/stock_models/stock_list.dart';
-
-import 'package:stock_simulator/models/viewmodels/stock_listview.dart';
 
 class StockList extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -15,7 +12,7 @@ class StockList extends StatelessWidget {
         },
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
-        itemCount: stocks!.length(),
+        itemCount: vm.stocks.length,
         itemBuilder: (context, index) {
           final stock = vm.stocks[index];
           var ticker = stock.ticker;
@@ -35,8 +32,7 @@ class StockList extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                      BuySellPage(this.stocks)));
+                                  builder: (context) => BuySellPage()));
                         },
                         child: Text('$ticker',
                             style: TextStyle(
@@ -75,8 +71,17 @@ class StockList extends StatelessWidget {
         });
   }
 
-  Color checkColor(double val) {
-    if (val > 0) return Colors.green;
-    return Colors.red;
+  Color checkColor(double? val) {
+    double value = 0;
+    if (val != null) {
+      value = val;
+    }
+
+    if (value > 0) {
+      return Colors.green;
+    } else if (value < 0) {
+      return Colors.red;
+    }
+    return Colors.grey;
   }
 }

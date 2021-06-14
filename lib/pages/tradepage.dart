@@ -23,8 +23,8 @@ class _tradepage extends State<TradePage> {
 
   @override
   Widget build(BuildContext context) {
+    final vm = Provider.of<StockListViewModel>(context);
     for (int i = 0; i < vm.stocks.length; i++) {
-      final vm = Provider.of<StockListViewModel>(context);
       vm.stocks[i].setPressed(false);
     }
     return Scaffold(

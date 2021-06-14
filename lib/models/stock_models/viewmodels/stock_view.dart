@@ -21,6 +21,10 @@ class StockViewModel {
     return stock!.changes;
   }
 
+  bool? get isPressed {
+    return stock!.isPressed;
+  }
+
   void setPressed(bool? newPressed) {
     stock!.isPressed = newPressed;
   }
