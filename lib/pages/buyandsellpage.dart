@@ -74,7 +74,8 @@ class _buysellpage extends State<BuySellPage> {
                                         child: Text(
                                             "${stocks!.trueStock()!.companyName}",
                                             style: TextStyle(
-                                                color: checkColor(stock!.rate),
+                                                color:
+                                                    checkColor(stock!.changes),
                                                 fontSize: 36,
                                                 fontWeight: FontWeight.bold)))))
                               ],
@@ -84,14 +85,14 @@ class _buysellpage extends State<BuySellPage> {
                               child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
-                                Text("${stocks!.trueStock()!.symbol}",
+                                Text("${stocks!.trueStock()!.ticker}",
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 36,
                                         fontWeight: FontWeight.bold)),
                                 Text("\$${stocks!.trueStock()!.price}",
                                     style: TextStyle(
-                                        color: checkColor(stock.rate),
+                                        color: checkColor(stock.changes),
                                         fontSize: 36,
                                         fontWeight: FontWeight.bold)),
                                 SizedBox(
@@ -99,14 +100,14 @@ class _buysellpage extends State<BuySellPage> {
                                       width: 150,
                                       height: 50,
                                       child: Text(
-                                          "${stocks!.trueStock()!.rate}%",
+                                          "${stocks!.trueStock()!.changes}%",
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 24)),
                                       alignment: Alignment.center,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
-                                        color: checkColor(stock.rate),
+                                        color: checkColor(stock.changes),
                                       )),
                                 )
                               ])),
