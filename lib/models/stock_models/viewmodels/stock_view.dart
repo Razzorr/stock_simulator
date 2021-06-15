@@ -13,7 +13,7 @@ class StockViewModel {
     return stock!.companyName;
   }
 
-  double? get price {
+  String? get price {
     return stock!.price;
   }
 

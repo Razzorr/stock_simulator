@@ -1,7 +1,7 @@
 class Stock {
   String? ticker;
   String? company;
-  double? price;
+  String? price;
   double? changes;
   bool? isPressed;
   Stock(
@@ -13,7 +13,7 @@ class Stock {
 
   String? get companyName => company!;
   String? get symbolName => ticker!;
-  double? get stockPrice => price;
+  String? get stockPrice => price;
   double? get ratePercent => changes!;
 
   void setPressed(bool? pressed2) => isPressed = pressed2;
