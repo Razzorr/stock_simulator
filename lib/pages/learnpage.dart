@@ -33,6 +33,7 @@ class _learnpage extends State<LearnPage> {
                       color: Colors.black,
                       child: SafeArea(
                         child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             Padding(
                                 padding: EdgeInsets.all(10.0),

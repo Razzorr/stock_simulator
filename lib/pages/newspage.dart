@@ -47,6 +47,7 @@ class _newspage extends State<NewsPage> {
                       color: Colors.black,
                       child: SafeArea(
                         child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             Padding(
                                 padding: EdgeInsets.all(10.0),

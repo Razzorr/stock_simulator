@@ -7,10 +7,6 @@ import 'stock_view.dart';
 class StockListViewModel extends ChangeNotifier {
   List<StockViewModel> stocks = [];
 
-  StockListViewModel() {
-    populateActiveStocks();
-  }
-
   Future<void> populateActiveStocks() async {
     List<Stock> stockLists = await Stockservice().fetchActiveStocks();
     this.stocks =

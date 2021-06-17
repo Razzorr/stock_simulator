@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:stock_simulator/models/stock_models/stock.dart';
-import 'package:stock_simulator/models/stock_models/viewmodels/stock_listview.dart';
+import 'package:stock_simulator/models/stock_models/viewmodels/stock_view.dart';
 import 'package:stock_simulator/pages/tradepage.dart';
-import 'package:stock_simulator/models/stock_models/stock_list.dart';
 import 'tradepage.dart';
 //import 'stockchart.dart';
 
 class BuySellPage extends StatefulWidget {
-  _buysellpage createState() => _buysellpage();
+  final StockViewModel stockCarrier;
+
+  const BuySellPage({required this.stockCarrier});
+  _buysellpage createState() => _buysellpage(this.stockCarrier);
 }
 
 // ignore: camel_case_types
 class _buysellpage extends State<BuySellPage> {
+  final StockViewModel stock;
+
+  _buysellpage(this.stock);
   Color checkColor(double? val) {
     if (val! > 0) return Colors.green;
     return Colors.red;
@@ -20,17 +23,6 @@ class _buysellpage extends State<BuySellPage> {
 
   @override
   Widget build(BuildContext context) {
-    final vm = Provider.of<StockListViewModel>(context);
-
-    dynamic trueStock() {
-      for (int i = 0; i < vm.stocks.length; i++) {
-        if (vm.stocks[i].isPressed == true) {
-          return vm.stocks[i];
-        }
-      }
-    }
-
-    Stock? stock = trueStock();
     return Scaffold(
         body: Stack(children: <Widget>[
       Container(
@@ -79,7 +71,7 @@ class _buysellpage extends State<BuySellPage> {
                                         MediaQuery.of(context).size.width - 100,
                                     color: Colors.black,
                                     child: (SafeArea(
-                                        child: Text("${stock!.companyName}",
+                                        child: Text("${stock.companyName}",
                                             style: TextStyle(
                                                 color:
                                                     checkColor(stock.changes),

@@ -2,12 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stock_simulator/models/news_models/view_models/newsarticle_listview.dart';
 
-class NewsList extends StatelessWidget {
+class NewsList extends StatefulWidget {
+  @override
+  _newsListState createState() => _newsListState();
+}
+
+// ignore: camel_case_types
+class _newsListState extends State<NewsList> {
   dynamic _displayMedia(String? media) {
     if (media == null) {
       return Image.asset('images/placeholder.png');
     } else
       return Image.network(media);
+  }
+
+  void initState() {
+    super.initState();
+    Provider.of<NewsArticleListViewModel>(context, listen: false)
+        .populateTopHeadlines();
   }
 
   @override

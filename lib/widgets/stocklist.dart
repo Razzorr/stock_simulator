@@ -3,7 +3,17 @@ import 'package:provider/provider.dart';
 import 'package:stock_simulator/models/stock_models/viewmodels/stock_listview.dart';
 import 'package:stock_simulator/pages/buyandsellpage.dart';
 
-class StockList extends StatelessWidget {
+class StockList extends StatefulWidget {
+  _StockListState createState() => _StockListState();
+}
+
+class _StockListState extends State<StockList> {
+  void initState() {
+    super.initState();
+    Provider.of<StockListViewModel>(context, listen: false)
+        .populateActiveStocks();
+  }
+
   Widget build(BuildContext context) {
     final vm = Provider.of<StockListViewModel>(context);
     return ListView.separated(
@@ -25,14 +35,15 @@ class StockList extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Padding(
-                      padding: EdgeInsets.all(10.0),
+                      padding: EdgeInsets.all(0.0),
                       child: TextButton(
                         onPressed: () {
                           stock.setPressed(true);
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => BuySellPage()));
+                                  builder: (context) => BuySellPage(
+                                      stockCarrier: vm.stocks[index])));
                         },
                         child: Text('$ticker',
                             style: TextStyle(
@@ -48,6 +59,7 @@ class StockList extends StatelessWidget {
                 ],
               ),
               trailing: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
                   Text("\$$price",
                       style: TextStyle(

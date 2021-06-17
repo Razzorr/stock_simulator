@@ -34,6 +34,7 @@ class _homepage extends State<HomePage2> {
                       color: Colors.black,
                       child: SafeArea(
                         child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             Padding(
                                 padding: EdgeInsets.all(10.0),
