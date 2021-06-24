@@ -21,7 +21,12 @@ class HomePage extends StatelessWidget {
                           fontWeight: FontWeight.bold)),
                   SizedBox(
                     width: MediaQuery.of(context).size.width,
-                    child: Buttons(),
+                    child: Buttons(
+                        homepage: true,
+                        newspage: false,
+                        tradepage: false,
+                        activitypage: false,
+                        learnpage: false),
                   )
                 ]),
           ))

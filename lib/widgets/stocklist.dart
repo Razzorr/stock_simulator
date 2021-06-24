@@ -14,6 +14,15 @@ class _StockListState extends State<StockList> {
         .populateActiveStocks();
   }
 
+  String posOrNeg(double val) {
+    if (val > 0)
+      return "+$val%";
+    else if (val < 0)
+      return "-$val%";
+    else
+      return "$val%";
+  }
+
   Widget build(BuildContext context) {
     final vm = Provider.of<StockListViewModel>(context);
     return ListView.separated(
@@ -70,7 +79,7 @@ class _StockListState extends State<StockList> {
                     child: Container(
                         width: 75,
                         height: 25,
-                        child: Text("$changes%",
+                        child: Text(posOrNeg(changes!),
                             style: TextStyle(color: Colors.white)),
                         alignment: Alignment.center,
                         decoration: BoxDecoration(

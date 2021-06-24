@@ -69,7 +69,12 @@ class _tradepage extends State<TradePage> {
                   //buttons
                   SizedBox(
                     width: MediaQuery.of(context).size.width,
-                    child: Buttons(),
+                    child: Buttons(
+                        homepage: false,
+                        newspage: false,
+                        tradepage: true,
+                        activitypage: false,
+                        learnpage: false),
                   )
                 ]),
           ))

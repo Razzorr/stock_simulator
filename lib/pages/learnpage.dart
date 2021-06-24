@@ -26,7 +26,12 @@ class _learnpage extends State<LearnPage> {
                           fontWeight: FontWeight.bold)),
                   SizedBox(
                     width: MediaQuery.of(context).size.width,
-                    child: Buttons(),
+                    child: Buttons(
+                        homepage: false,
+                        newspage: false,
+                        tradepage: false,
+                        activitypage: false,
+                        learnpage: true),
                   )
                 ]),
           ))

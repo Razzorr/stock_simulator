@@ -9,18 +9,35 @@ import 'package:stock_simulator/pages/tradepage.dart';
 // ignore: must_be_immutable
 
 class Buttons extends StatefulWidget {
-  _ButtonState createState() => _ButtonState();
+  final bool homepage, newspage, tradepage, activitypage, learnpage;
+  Buttons(
+      {required this.homepage,
+      required this.newspage,
+      required this.tradepage,
+      required this.activitypage,
+      required this.learnpage});
+  _ButtonState createState() => _ButtonState(
+      homepage: homepage,
+      newspage: newspage,
+      tradepage: tradepage,
+      activitypage: activitypage,
+      learnpage: learnpage);
 }
 
 class _ButtonState extends State<Buttons> {
-  bool homePage = false,
-      activityPage = false,
-      learnPage = false,
-      tradePage = false,
-      newsPage = false;
+  final bool homepage, newspage, tradepage, activitypage, learnpage;
+
+  _ButtonState(
+      {required this.homepage,
+      required this.newspage,
+      required this.tradepage,
+      required this.activitypage,
+      required this.learnpage});
   Color onPage(bool isOn) {
-    if (isOn) return Colors.red;
-    return Colors.grey;
+    if (isOn)
+      return Colors.red;
+    else
+      return Colors.grey;
   }
 
   @override
@@ -41,7 +58,7 @@ class _ButtonState extends State<Buttons> {
                           MaterialPageRoute(builder: (context) => HomePage2()));
                     },
                     style: TextButton.styleFrom(
-                      backgroundColor: Colors.grey[600],
+                      backgroundColor: onPage(homepage),
                       shadowColor: Colors.white,
                       primary: Colors.white,
                       padding: EdgeInsets.symmetric(
@@ -58,7 +75,7 @@ class _ButtonState extends State<Buttons> {
                           MaterialPageRoute(builder: (context) => NewsPage()));
                     },
                     style: TextButton.styleFrom(
-                      backgroundColor: Colors.grey[600],
+                      backgroundColor: onPage(newspage),
                       shadowColor: Colors.white,
                       primary: Colors.white,
                       padding: EdgeInsets.symmetric(
@@ -75,7 +92,7 @@ class _ButtonState extends State<Buttons> {
                           MaterialPageRoute(builder: (context) => TradePage()));
                     },
                     style: TextButton.styleFrom(
-                      backgroundColor: Colors.grey[600],
+                      backgroundColor: onPage(tradepage),
                       shadowColor: Colors.white,
                       primary: Colors.red,
                       padding: EdgeInsets.symmetric(
@@ -94,7 +111,7 @@ class _ButtonState extends State<Buttons> {
                               builder: (context) => ActivityPage()));
                     },
                     style: TextButton.styleFrom(
-                      backgroundColor: Colors.grey[600],
+                      backgroundColor: onPage(activitypage),
                       shadowColor: Colors.white,
                       primary: Colors.white,
                       padding: EdgeInsets.symmetric(
@@ -111,7 +128,7 @@ class _ButtonState extends State<Buttons> {
                           MaterialPageRoute(builder: (context) => LearnPage()));
                     },
                     style: TextButton.styleFrom(
-                      backgroundColor: Colors.grey[600],
+                      backgroundColor: onPage(learnpage),
                       shadowColor: Colors.white,
                       primary: Colors.white,
                       padding: EdgeInsets.symmetric(

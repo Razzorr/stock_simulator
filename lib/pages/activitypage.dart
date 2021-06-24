@@ -26,7 +26,12 @@ class _activitypage extends State<ActivityPage> {
                           fontWeight: FontWeight.bold)),
                   SizedBox(
                     width: MediaQuery.of(context).size.width,
-                    child: Buttons(),
+                    child: Buttons(
+                        homepage: false,
+                        newspage: false,
+                        tradepage: false,
+                        activitypage: true,
+                        learnpage: false),
                   )
                 ]),
           ))

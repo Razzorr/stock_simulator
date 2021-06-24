@@ -40,7 +40,12 @@ class _newspage extends State<NewsPage> {
                   ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width,
-                    child: Buttons(),
+                    child: Buttons(
+                        homepage: false,
+                        newspage: true,
+                        tradepage: false,
+                        activitypage: false,
+                        learnpage: false),
                   )
                 ]),
           ))

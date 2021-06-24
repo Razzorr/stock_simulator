@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class Stock {
   String? ticker;
   String? company;
@@ -18,11 +20,19 @@ class Stock {
 
   void setPressed(bool? pressed2) => isPressed = pressed2;
 
+  static double? getChanges(String? val) {
+    if (val!.contains("-")) {
+      return double.parse(val.substring(2, 6)) * -1;
+    } else {
+      return double.parse(val.substring(2, 6));
+    }
+  }
+
   factory Stock.fromJSON(Map<String, dynamic> json) {
     return Stock(
         ticker: json["ticker"],
         company: json["companyName"],
         price: json["price"],
-        changes: json["changes"]);
+        changes: getChanges(json["changesPercentage"]));
   }
 }
