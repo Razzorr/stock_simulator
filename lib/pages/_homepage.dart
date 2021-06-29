@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:stock_simulator/widgets/buttons.dart';
 
 import 'homepage.dart';
 

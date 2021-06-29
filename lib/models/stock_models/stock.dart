@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class Stock {
   String? ticker;
   String? company;
