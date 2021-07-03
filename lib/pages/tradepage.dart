@@ -5,9 +5,12 @@ import 'package:stock_simulator/widgets/buttons.dart';
 import 'package:stock_simulator/widgets/stocklist.dart';
 import 'package:intl/intl.dart';
 
+import '_homepage.dart';
+
 //import 'dart.html';
 
 class TradePage extends StatefulWidget {
+  static double money = 10000;
   _tradepage createState() => _tradepage();
 }
 
@@ -39,27 +42,33 @@ class _tradepage extends State<TradePage> {
                           fontSize: 30,
                           fontWeight: FontWeight.bold)),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                        height: 50,
-                        child: TextField(
-                            decoration: InputDecoration(
-                                hintStyle: TextStyle(color: Colors.grey[500]),
-                                hintText: "Search a stock...",
-                                prefix: Icon(Icons.search),
-                                fillColor: Colors.grey[800],
-                                filled: true,
-                                border: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        width: 0, style: BorderStyle.none),
-                                    borderRadius: BorderRadius.all(
-                                        Radius.circular(32)))))),
-                  ),
+                      padding: EdgeInsets.all(10.0),
+                      child: TextButton(
+                        onPressed: () {
+                          TradePage.money--;
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomePage2()));
+                        },
+                        style: TextButton.styleFrom(
+                          backgroundColor: Colors.brown,
+                          shadowColor: Colors.white,
+                          primary: Colors.white,
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10.0, vertical: 10.0),
+                          minimumSize: Size(
+                              MediaQuery.of(context).size.width / 7.75, 10),
+                        ),
+                        child: Text("\$${TradePage.money}",
+                            style: TextStyle(
+                                fontSize: 30.0, color: Colors.orange)),
+                      )),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: SafeArea(
                       child: SizedBox(
-                        height: MediaQuery.of(context).size.height - 300,
+                        height: MediaQuery.of(context).size.height - 350,
                         child: ChangeNotifierProvider(
                             create: (context) => StockListViewModel(),
                             child: StockList()),

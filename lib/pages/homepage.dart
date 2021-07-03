@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stock_simulator/pages/tradepage.dart';
 import 'package:stock_simulator/widgets/buttons.dart';
 
 class HomePage extends StatelessWidget {
@@ -15,6 +16,16 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text("Home",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 36,
+                          fontWeight: FontWeight.bold)),
+                  Text("Money:",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 36,
+                          fontWeight: FontWeight.bold)),
+                  Text("\$${TradePage.money}",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 36,

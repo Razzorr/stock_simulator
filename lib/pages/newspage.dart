@@ -31,7 +31,7 @@ class _newspage extends State<NewsPage> {
                     padding: const EdgeInsets.all(8.0),
                     child: SafeArea(
                       child: SizedBox(
-                        height: MediaQuery.of(context).size.height - 200,
+                        height: MediaQuery.of(context).size.height - 275,
                         child: ChangeNotifierProvider(
                             create: (context) => NewsArticleListViewModel(),
                             child: NewsList()),
@@ -39,7 +39,7 @@ class _newspage extends State<NewsPage> {
                     ),
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width,
+                    width: MediaQuery.of(context).size.width + 15,
                     child: Buttons(
                         homepage: false,
                         newspage: true,

@@ -63,7 +63,8 @@ class _ButtonState extends State<Buttons> {
                       primary: Colors.white,
                       padding: EdgeInsets.symmetric(
                           horizontal: 10.0, vertical: 10.0),
-                      minimumSize: Size(50, 10),
+                      minimumSize:
+                          Size(MediaQuery.of(context).size.width / 7.75, 10),
                     ),
                     child: Text("🏠", style: TextStyle(fontSize: 20.0)),
                   )),
@@ -80,7 +81,8 @@ class _ButtonState extends State<Buttons> {
                       primary: Colors.white,
                       padding: EdgeInsets.symmetric(
                           horizontal: 10.0, vertical: 10.0),
-                      minimumSize: Size(50, 10),
+                      minimumSize:
+                          Size(MediaQuery.of(context).size.width / 7.75, 10),
                     ),
                     child: Text("📰", style: TextStyle(fontSize: 20.0)),
                   )),
@@ -97,7 +99,8 @@ class _ButtonState extends State<Buttons> {
                       primary: Colors.red,
                       padding: EdgeInsets.symmetric(
                           horizontal: 10.0, vertical: 10.0),
-                      minimumSize: Size(50, 10),
+                      minimumSize:
+                          Size(MediaQuery.of(context).size.width / 7.75, 10),
                     ),
                     child: Text("💵", style: TextStyle(fontSize: 20.0)),
                   )),
@@ -116,7 +119,8 @@ class _ButtonState extends State<Buttons> {
                       primary: Colors.white,
                       padding: EdgeInsets.symmetric(
                           horizontal: 10.0, vertical: 10.0),
-                      minimumSize: Size(50, 10),
+                      minimumSize:
+                          Size(MediaQuery.of(context).size.width / 7.75, 10),
                     ),
                     child: Text("📜", style: TextStyle(fontSize: 20.0)),
                   )),
@@ -133,7 +137,8 @@ class _ButtonState extends State<Buttons> {
                       primary: Colors.white,
                       padding: EdgeInsets.symmetric(
                           horizontal: 10.0, vertical: 10.0),
-                      minimumSize: Size(50, 10),
+                      minimumSize:
+                          Size(MediaQuery.of(context).size.width / 7.75, 10),
                     ),
                     child: Text("✏️", style: TextStyle(fontSize: 20.0)),
                   )),

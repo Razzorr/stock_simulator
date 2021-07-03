@@ -23,6 +23,7 @@ class _buysellpage extends State<BuySellPage> {
 
   @override
   Widget build(BuildContext context) {
+    double price = double.parse(stock.price!);
     return Scaffold(
         body: Stack(children: <Widget>[
       Container(
@@ -107,7 +108,32 @@ class _buysellpage extends State<BuySellPage> {
                                         borderRadius: BorderRadius.circular(5),
                                         color: checkColor(stock.changes),
                                       )),
-                                )
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.all(10.0),
+                                    child: TextButton(
+                                      onPressed: () {
+                                        TradePage.money -= price;
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    TradePage()));
+                                      },
+                                      style: TextButton.styleFrom(
+                                        backgroundColor: Colors.red,
+                                        shadowColor: Colors.white,
+                                        primary: Colors.white,
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 10.0, vertical: 10.0),
+                                        minimumSize: Size(
+                                            MediaQuery.of(context).size.width /
+                                                7.75,
+                                            10),
+                                      ),
+                                      child: Text("buy",
+                                          style: TextStyle(fontSize: 20.0)),
+                                    )),
                               ])),
                           //SizedBox(child: StockChart())
                         ])),
