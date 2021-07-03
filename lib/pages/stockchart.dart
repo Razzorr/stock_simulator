@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:stock_simulator/models/stock_models/stock.dart';
+import 'package:stock_simulator/models/stock_models/stock_list.dart';
+import 'package:stock_simulator/widgets/stocklist.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
@@ -7,14 +10,8 @@ class StockChart extends StatefulWidget {
 }
 
 // ignore: camel_case_types
-class _stockchart extends State<StockChart> {
-  List<_SalesData> data = [
-    _SalesData('Jan', 35),
-    _SalesData('Feb', 28),
-    _SalesData('Mar', 34),
-    _SalesData('Apr', 32),
-    _SalesData('May', 40)
-  ];
+class _stockchart extends State<Stock> {
+  List<StockList> data = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
