@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:stock_simulator/models/stock_models/viewmodels/stock_view.dart';
+import 'package:stock_simulator/models/stockchart_models/viewmodels/stockchartdata.view.dart';
+import 'package:stock_simulator/pages/stockchart.dart';
 import 'package:stock_simulator/pages/tradepage.dart';
 import 'tradepage.dart';
 //import 'stockchart.dart';
@@ -23,6 +26,7 @@ class _buysellpage extends State<BuySellPage> {
 
   @override
   Widget build(BuildContext context) {
+    final vm = Provider.of<StockChartDataViewModel>(context);
     double price = double.parse(stock.price!);
     return Scaffold(
         body: Stack(children: <Widget>[
@@ -135,7 +139,7 @@ class _buysellpage extends State<BuySellPage> {
                                           style: TextStyle(fontSize: 20.0)),
                                     )),
                               ])),
-                          //SizedBox(child: StockChart())
+                          SizedBox(child: StockChart(stock.ticker))
                         ])),
               ])))
     ]));
