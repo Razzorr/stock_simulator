@@ -26,7 +26,6 @@ class _buysellpage extends State<BuySellPage> {
 
   @override
   Widget build(BuildContext context) {
-    final vm = Provider.of<StockChartDataViewModel>(context);
     double price = double.parse(stock.price!);
     return Scaffold(
         body: Stack(children: <Widget>[
@@ -139,7 +138,10 @@ class _buysellpage extends State<BuySellPage> {
                                           style: TextStyle(fontSize: 20.0)),
                                     )),
                               ])),
-                          SizedBox(child: StockChart(stock.ticker))
+                          SizedBox(
+                              height: 300,
+                              width: 300,
+                              child: StockChart(stock.ticker))
                         ])),
               ])))
     ]));
